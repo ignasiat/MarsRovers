@@ -42,16 +42,23 @@
             "never"
         ],
         "import/no-unresolved": [
-            2,
+            0,
             {
                 "ignore": [
-                    "\\.ts$"
+                    "\\.ts$",
+                    "src/"
                 ]
             }
         ],
         "jsx-a11y/label-has-associated-control": [
             0,
             {}
+        ],
+        "import/extensions": [
+            0
+        ],
+        "react/jsx-wrap-multilines": [
+            0
         ]
     }
 }
