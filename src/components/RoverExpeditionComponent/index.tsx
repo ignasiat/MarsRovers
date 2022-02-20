@@ -58,8 +58,8 @@ const RoverExpeditionComponent = ({
       </thead>
       <tbody>
         <tr>
-          <td>Origin</td>
-          <td className="terrain-origin-rover">
+          <td className="terrain-origin-rover">Origin</td>
+          <td>
             {configuration.xOrigin}
             ,
             {configuration.yOrigin}
