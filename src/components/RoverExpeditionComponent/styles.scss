@@ -1,0 +1,14 @@
+.rover-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .terrain-layer {
+    height: 32px;
+
+  }
+}
+
+.terrain-origin-rover {
+  background-color: aqua;
+}
