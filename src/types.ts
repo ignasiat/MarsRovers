@@ -4,12 +4,11 @@ export type Configuration = {
   numberOfObstacles: number,
   yOrigin: number,
   xOrigin: number,
-  directionOrigin: string,
+  directionOrigin: Orientation,
   commands: string,
-  disabled: boolean
+  submited: boolean,
+  error: ErrorConfiguration
 }
-
-export type Direction = string[]
 
 export type ErrorConfiguration = {
   numberOfObstacles: null | string,
@@ -19,4 +18,25 @@ export type ErrorConfiguration = {
   totalValidation: boolean
 }
 
-export type SetErrorConfiguration = (error: ErrorConfiguration) => void;
+export type SetConfiguration = (configuration: Configuration) => void;
+
+export type ArrayString = string[];
+
+export type Terrain = ArrayString[];
+
+export type Movement = 'F' | 'R' | 'L';
+
+export type Orientation = 'N' | 'S' | 'E' | 'W';
+
+export type MovementInTerrain = {
+  terrain: Terrain,
+  xPosition: number,
+  yPosition: number,
+  movementDone: Movement | null,
+  movementPossible: boolean
+}
+
+export type RoverExpedition = {
+  terrain: Terrain,
+  movementsDone: Movement[]
+}
