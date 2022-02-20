@@ -1,5 +1,7 @@
 # Rover Mars Exploration.
 
+![image](https://user-images.githubusercontent.com/71487285/154846262-138225df-d966-4625-b5cf-0a2dfbf9d40a.png)
+
 This little project was coded during a weekend. It simulates sending a Rover to explore Mars.
 
 You can visit live at: [Rover explores Mars](https://rover-mars-expedition.web.app/)
