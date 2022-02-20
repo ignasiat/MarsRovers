@@ -1,3 +1,4 @@
+/* global JSX */
 import React from 'react';
 import barrier from '../../assets/barrier.png';
 import layers from '../../assets/layers.png';
@@ -36,10 +37,10 @@ const RoverExpeditionComponent = ({
               case TERRAIN_ROVER:
                 return indexX === configuration.xOrigin - 1
                   && indexY === configuration.yOrigin - 1 ? (
-                  <img src={marsRover} alt={TERRAIN_ROVER_TEXT} className="terrain-origin-rover" />
-                ) : (
-                  <img src={marsRover} alt={TERRAIN_ROVER_TEXT} />
-                );
+                    <img src={marsRover} alt={TERRAIN_ROVER_TEXT} className="terrain-origin-rover" />
+                  ) : (
+                    <img src={marsRover} alt={TERRAIN_ROVER_TEXT} />
+                  );
               default:
                 return (
                   <img src={layers} alt={TERRAIN_AVAILABLE_TEXT} />);
