@@ -1,4 +1,25 @@
-# Getting Started with Create React App
+# Rover Mars Exploration.
+
+This little project was coded during a weekend. It simulates sending a Rover to explore Mars.
+
+You can visit live at: [Rover explores Mars](https://rover-mars-expedition.web.app/)
+
+## How it works
+
+In the form you can select the dimensions of the planet Mars (columns and rows) and how many obstacles you can find in it. You can pick the position of the landing, assuming that (1,1) is the left top corner. x axis grows to the right, y axis grows going down. The program assume that the landing position is free of obstacles, because the NASA people check it before. 
+
+You can choose the direction that the Rover will follow (North,East,South or West) and the sequence of commands it will follow:
+- F moves forward
+- R moves to the right
+- L moves to the left
+
+If the Rover founds an obstacle in its path it will stop before crashing and aborting the rest of movements.
+
+When you send a Rover you will see graphically the Rover path, from its landing position marked with blue background. Then there is a summary where you can see the commands sended and the ones that the Rover was able to perform.
+
+## Technologies
+
+This app was coded using React, functional components and hooks. I used Typescript and for styling I used SASS.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -17,30 +38,8 @@ You will also see any lint errors in the console.
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
 
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
