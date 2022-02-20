@@ -20,9 +20,11 @@ export type ErrorConfiguration = {
 
 export type SetConfiguration = (configuration: Configuration) => void;
 
-export type ArrayString = string[];
+export type TerrainElement = ('A' | 'O' | 'R')
 
-export type Terrain = ArrayString[];
+export type TerrainLayer = TerrainElement[];
+
+export type Terrain = TerrainLayer[];
 
 export type Movement = 'F' | 'R' | 'L';
 
