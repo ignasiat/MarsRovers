@@ -67,10 +67,10 @@ export const roverOneMovement = (
         yNewPosition = yDown;
         break;
       case ORIENTATIONS.east:
-        xNewPosition = xLeft;
+        xNewPosition = xRight;
         break;
       case ORIENTATIONS.west:
-        xNewPosition = xRight;
+        xNewPosition = xLeft;
         break;
       default:
         break;
