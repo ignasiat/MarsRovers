@@ -21,7 +21,7 @@ import './styles.scss';
 const RoverExpeditionComponent = ({
   expedition,
   configuration
-}: { expedition: RoverExpedition | undefined, configuration: Configuration }) => (
+}: { expedition: RoverExpedition | undefined, configuration: Configuration }): JSX.Element => (
 
   <div className="rover-container">
     <h1> Rover Expedition</h1>
