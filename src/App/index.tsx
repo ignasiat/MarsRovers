@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import RoverExpeditionComponent from '../components/RoverExpeditionComponent';
 import {
   DIRECTIONS,
   MAX_COLUMS,
@@ -37,10 +38,10 @@ const App: React.FC = () => {
   const [expeditionRover, setExpeditionRover] = useState<RoverExpedition>();
 
   useEffect(() => {
-    if (configuration.error.totalValidation) {
+    if (configuration.submited) {
       setExpeditionRover(roverExpedition(configuration));
     }
-  }, [configuration.error.totalValidation]);
+  }, [configuration]);
 
   const validateForm = (
     configuration_: Configuration
@@ -76,7 +77,8 @@ const App: React.FC = () => {
     setConfiguration({
       ...configuration,
       [event?.target?.name]: event?.target?.value,
-      error: validateForm({ ...configuration, [event?.target?.name]: event?.target?.value })
+      error: validateForm({ ...configuration, [event?.target?.name]: event?.target?.value }),
+      submited: false
     });
   };
 
@@ -98,7 +100,7 @@ const App: React.FC = () => {
               <label htmlFor="cols">
                 Columns available
               </label>
-              <input className="input-container__element--number" name="cols" id="cols" type="number" min="10" max={MAX_COLUMS} step="1" placeholder="Colums" onChange={handlerOnChange} value={configuration.cols} disabled={configuration.submited} />
+              <input className="input-container__element--number" name="cols" id="cols" type="number" min="10" max={MAX_COLUMS} step="1" placeholder="Colums" onChange={handlerOnChange} value={configuration.cols} />
             </div>
           </div>
           <div className="input-container">
@@ -107,7 +109,7 @@ const App: React.FC = () => {
               <label htmlFor="rows">
                 Rows available
               </label>
-              <input className="input-container__element--number" name="rows" id="rows" type="number" min="10" max={MAX_ROWS} step="1" placeholder="Rows" onChange={handlerOnChange} value={configuration.rows} disabled={configuration.submited} />
+              <input className="input-container__element--number" name="rows" id="rows" type="number" min="10" max={MAX_ROWS} step="1" placeholder="Rows" onChange={handlerOnChange} value={configuration.rows} />
             </div>
           </div>
           <div className="input-container">
@@ -115,7 +117,7 @@ const App: React.FC = () => {
               <label htmlFor="numberOfObstacles">
                 Number of obstacles
               </label>
-              <input className="input-container__element--number" name="numberOfObstacles" id="numberOfObstacles" type="number" min="10" max={MAX_OBSTACLES} step="1" placeholder="Obstacles" onChange={handlerOnChange} value={configuration.numberOfObstacles} disabled={configuration.submited} />
+              <input className="input-container__element--number" name="numberOfObstacles" id="numberOfObstacles" type="number" min="10" max={MAX_OBSTACLES} step="1" placeholder="Obstacles" onChange={handlerOnChange} value={configuration.numberOfObstacles} />
             </div>
             {configuration.error.numberOfObstacles
               && (<span className="input-container__element--error">{configuration.error.numberOfObstacles}</span>)}
@@ -128,7 +130,7 @@ const App: React.FC = () => {
               <label htmlFor="yOrigin">
                 Vertical position
               </label>
-              <input className="input-container__element--number" name="yOrigin" id="yOrigin" type="number" min="1" max={MAX_COLUMS} step="1" placeholder="Y position" onChange={handlerOnChange} value={configuration.yOrigin} disabled={configuration.submited} />
+              <input className="input-container__element--number" name="yOrigin" id="yOrigin" type="number" min="1" max={MAX_COLUMS} step="1" placeholder="Y position" onChange={handlerOnChange} value={configuration.yOrigin} />
             </div>
             {configuration.error.yOrigin && (<span className="input-container__element--error">{configuration.error.yOrigin}</span>)}
 
@@ -139,7 +141,7 @@ const App: React.FC = () => {
               <label htmlFor="xOrigin">
                 Horizontal position
               </label>
-              <input className="input-container__element--number" name="xOrigin" id="xOrigin" type="number" min="1" max={MAX_ROWS} step="1" placeholder="X position" onChange={handlerOnChange} value={configuration.xOrigin} disabled={configuration.submited} />
+              <input className="input-container__element--number" name="xOrigin" id="xOrigin" type="number" min="1" max={MAX_ROWS} step="1" placeholder="X position" onChange={handlerOnChange} value={configuration.xOrigin} />
             </div>
             {configuration.error.xOrigin && (<span className="input-container__element--error">{configuration.error.xOrigin}</span>)}
           </div>
@@ -149,7 +151,7 @@ const App: React.FC = () => {
               <label htmlFor="directionOrigin">
                 Orientation
               </label>
-              <select id="directionOrigin" name="directionOrigin" onChange={handlerOnChange} value={configuration.directionOrigin} disabled={configuration.submited}>
+              <select id="directionOrigin" name="directionOrigin" onChange={handlerOnChange} value={configuration.directionOrigin}>
                 {DIRECTIONS.map((direction: string): JSX.Element => (
                   <option value={direction} key={direction}>
                     {direction}
@@ -164,22 +166,20 @@ const App: React.FC = () => {
             <label htmlFor="commands">
               Command sequence (F/R/L)
             </label>
-            <input className="input-container__element--commands" name="commands" id="commands" type="string" placeholder="commands" onChange={handlerOnChange} value={configuration.commands} disabled={configuration.submited} />
+            <input className="input-container__element--commands" name="commands" id="commands" type="string" placeholder="commands" onChange={handlerOnChange} value={configuration.commands} />
             {configuration.error.commands && (<span className="input-container__element--error">{configuration.error.commands}</span>)}
           </div>
           <div className="input-container input-container__element--centered">
-            <button className="input-container__element--button" type="submit" onClick={handlerOnSubmit} disabled={configuration.submited}>LAUNCH ROVER TO MARS</button>
+            <button className="input-container__element--button" type="submit" onClick={handlerOnSubmit}>LAUNCH ROVER TO MARS</button>
           </div>
         </form>
       </div>
-      {configuration.submited
-        && (
-          <div className="rover-container">
-            <pre>
-              {expeditionRover?.terrain.join('\n')}
-            </pre>
-          </div>
-        )}
+      <div className="rover-container">
+        {configuration.submited
+          && (
+            <RoverExpeditionComponent expedition={expeditionRover} configuration={configuration} />
+          )}
+      </div>
     </div>
   );
 };
