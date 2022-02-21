@@ -1,9 +1,9 @@
 /* eslint-disable react/jsx-closing-tag-location */
 import React from 'react';
 import { act, render } from '@testing-library/react';
-import { Configuration, ErrorConfiguration, RoverExpedition } from '../../../types';
-import { TERRAIN_AVAILABLE, TERRAIN_OBSTACLE, TERRAIN_ROVER } from '../../../constants';
-import RoverExpeditionComponent from '..';
+import { Configuration, ErrorConfiguration, RoverExpedition } from '../types';
+import { TERRAIN_AVAILABLE, TERRAIN_OBSTACLE, TERRAIN_ROVER } from '../constants';
+import RoverExpeditionComponent from '../components/RoverExpeditionComponent';
 
 describe('Given a RoverExpeditionComponent ', () => {
   let container : HTMLDivElement | null | any;
