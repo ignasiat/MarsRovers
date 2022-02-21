@@ -37,13 +37,13 @@ const RoverExpeditionComponent = ({
               case TERRAIN_ROVER:
                 return indexX === configuration.xOrigin - 1
                   && indexY === configuration.yOrigin - 1 ? (
-                    <img src={marsRover} alt={TERRAIN_ROVER_TEXT} className="terrain-origin-rover" key={`terrain-${indexX}-${indexY}`}/>
+                    <img src={marsRover} alt={TERRAIN_ROVER_TEXT} className="terrain-origin-rover" key={`terrain-${indexX}-${indexY}`} />
                   ) : (
-                    <img src={marsRover} alt={TERRAIN_ROVER_TEXT} key={`terrain-${indexX}-${indexY}`}/>
+                    <img src={marsRover} alt={TERRAIN_ROVER_TEXT} key={`terrain-${indexX}-${indexY}`} />
                   );
               default:
                 return (
-                  <img src={layers} alt={TERRAIN_AVAILABLE_TEXT} key={`terrain-${indexX}-${indexY}`}/>);
+                  <img src={layers} alt={TERRAIN_AVAILABLE_TEXT} key={`terrain-${indexX}-${indexY}`} />);
             }
           })}
         </div>))}
