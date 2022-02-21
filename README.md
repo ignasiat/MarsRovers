@@ -19,6 +19,8 @@ If the Rover founds an obstacle in its path it will stop before crashing and abo
 
 When you send a Rover you will see graphically the Rover path, from its landing position marked with blue background. Then there is a summary where you can see the commands sended and the ones that the Rover was able to perform.
 
+You can run the simulation as many time you want, just press the button for a new simulation with the same arguments. Each time the simulation can be different because the obstacles allocations is done randomly.
+
 ## Technologies
 
 This app was coded using React, functional components and hooks. I used Typescript and for styling I used SASS.
