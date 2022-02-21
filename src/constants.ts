@@ -1,4 +1,4 @@
-import { Orientation, TerrainElement } from './types';
+import { Movement, Orientation, TerrainElement } from './types';
 
 export const MAX_COLUMS: number = 200;
 export const MAX_ROWS: number = 200;
@@ -26,7 +26,7 @@ export const TERRAIN_OBSTACLE: TerrainElement = 'O';
 export const TERRAIN_OBSTACLE_TEXT: string = 'Obstacle';
 export const TERRAIN_ROVER: TerrainElement = 'R';
 export const TERRAIN_ROVER_TEXT: string = 'Rover';
-export const MOVEMENT = {
+export const MOVEMENT: {[key: string]: Movement} = {
   forward: 'F',
   right: 'R',
   left: 'L'
