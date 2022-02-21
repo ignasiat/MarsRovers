@@ -28,22 +28,22 @@ const RoverExpeditionComponent = ({
     <h1> Rover Expedition</h1>
     <div>
       {expedition?.terrain.map((firstLayer: TerrainLayer, indexY: number) => (
-        <div className="terrain-layer">
+        <div className="terrain-layer" key={`terrain-${indexY}`}>
           {firstLayer.map((element: TerrainElement, indexX: number) => {
             switch (element) {
               case TERRAIN_OBSTACLE:
                 return (
-                  <img src={barrier} alt={TERRAIN_OBSTACLE_TEXT} />);
+                  <img src={barrier} alt={TERRAIN_OBSTACLE_TEXT} key={`terrain-${indexX}-${indexY}`} />);
               case TERRAIN_ROVER:
                 return indexX === configuration.xOrigin - 1
                   && indexY === configuration.yOrigin - 1 ? (
-                    <img src={marsRover} alt={TERRAIN_ROVER_TEXT} className="terrain-origin-rover" />
+                    <img src={marsRover} alt={TERRAIN_ROVER_TEXT} className="terrain-origin-rover" key={`terrain-${indexX}-${indexY}`}/>
                   ) : (
-                    <img src={marsRover} alt={TERRAIN_ROVER_TEXT} />
+                    <img src={marsRover} alt={TERRAIN_ROVER_TEXT} key={`terrain-${indexX}-${indexY}`}/>
                   );
               default:
                 return (
-                  <img src={layers} alt={TERRAIN_AVAILABLE_TEXT} />);
+                  <img src={layers} alt={TERRAIN_AVAILABLE_TEXT} key={`terrain-${indexX}-${indexY}`}/>);
             }
           })}
         </div>))}
@@ -59,7 +59,7 @@ const RoverExpeditionComponent = ({
       <tbody>
         <tr>
           <td className="terrain-origin-rover">Origin</td>
-          <td>
+          <td className="terrain-origin-coordinates">
             {configuration.xOrigin}
             ,
             {configuration.yOrigin}
