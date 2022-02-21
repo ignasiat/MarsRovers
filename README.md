@@ -8,7 +8,12 @@ You can visit live at: [Rover explores Mars](https://rover-mars-expedition.web.a
 
 ## How it works
 
-In the form you can select the dimensions of the planet Mars (columns and rows) and how many obstacles you can find in it. You can pick the position of the landing, assuming that (1,1) is the left top corner. x axis grows to the right, y axis grows going down. The program assume that the landing position is free of obstacles, because the NASA people check it before. 
+In the form you can select the dimensions of the planet Mars (columns and rows) and how many obstacles you can find in it. You can pick the position of the landing, assuming that (1,1) is the left top corner. x axis grows to the right, y axis grows going down. The program assume that the landing position is free of obstacles, because the NASA people check it before.
+
+There is a form validation that checks:
+- The land coordinates are inside the land to explore.
+- There is enough space for all the obstacles.
+- The commands sequence only contains: F, R or L.
 
 You can choose the direction that the Rover will follow (North,East,South or West) and the sequence of commands it will follow:
 - F moves forward
