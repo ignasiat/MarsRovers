@@ -51,8 +51,8 @@ export const roverOneMovement = (
   const newTerrain: Terrain = [...terrain];
 
   const yUp = Math.max(yPosition - 1, 0);
-  const yDown = Math.min(yPosition + 1, terrain.length);
-  const xRight = Math.min(xPosition + 1, terrain[1].length);
+  const yDown = Math.min(yPosition + 1, terrain.length - 1);
+  const xRight = Math.min(xPosition + 1, terrain[1].length - 1);
   const xLeft = Math.max(xPosition - 1, 0);
 
   let xNewPosition = xPosition;
