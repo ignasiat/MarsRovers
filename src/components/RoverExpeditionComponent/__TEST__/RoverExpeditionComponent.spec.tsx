@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-closing-tag-location */
 import React from 'react';
 import { act, render } from '@testing-library/react';
-import Dashboard from '..';
 import { Configuration, ErrorConfiguration, RoverExpedition } from '../../../types';
 import { TERRAIN_AVAILABLE, TERRAIN_OBSTACLE, TERRAIN_ROVER } from '../../../constants';
 import RoverExpeditionComponent from '..';
@@ -18,8 +17,8 @@ describe('Given a RoverExpeditionComponent ', () => {
     container = null;
   });
 
-  describe('When is invoked and the store contain a heroesList', () => {
-    test('Then should render an element with class hero-card__title with fakeName inside', () => {
+  describe('When is invoked with a configuration files containing xOrigin 3 and yOrigin 1', () => {
+    test('Then should render an element with class terrain-origincoordinates with 3,1 inside', () => {
       const testExpedition : RoverExpedition = {
         terrain: [[TERRAIN_AVAILABLE, TERRAIN_ROVER, TERRAIN_AVAILABLE],
         [TERRAIN_AVAILABLE, TERRAIN_ROVER, TERRAIN_OBSTACLE],
