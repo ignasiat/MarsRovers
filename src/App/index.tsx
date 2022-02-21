@@ -65,7 +65,7 @@ const App: React.FC = () => {
     }
 
     // Validate command string
-    const regex = /^[FRL]*$/gi;
+    const regex = /^[FRL]*$/g;
     if (!regex.test(configuration_.commands)) {
       newError = ({ ...newError, commands: 'Fix your command string, only allow F, R and L', totalValidation: false });
     }
